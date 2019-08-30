@@ -7,12 +7,16 @@ import SEO from "../components/seo"
 const Blog = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
+      allMarkdownRemark {
         edges {
           node {
-            title
-            slug
-            publishedDate(formatString: "MMMM Do, YYYY")
+            frontmatter {
+              title
+              date
+            }
+            fields {
+              slug
+            }
           }
         }
       }
@@ -23,13 +27,15 @@ const Blog = () => {
     <Layout>
       <SEO title="Blog" />
       <ol>
-        {data.allContentfulBlogPost.edges.map(edge => {
+        {data.allMarkdownRemark.edges.map(edge => {
           return (
             <li key={edge.node.slug}>
               <h2>
-                <Link to={`/blog/${edge.node.slug}`}>{edge.node.title}</Link>
+                <Link to={`/blog/${edge.node.fields.slug}`}>
+                  {edge.node.frontmatter.title}
+                </Link>
               </h2>
-              <p>{edge.node.publishedDate}</p>
+              <p>{edge.node.frontmatter.date}</p>
             </li>
           )
         })}
