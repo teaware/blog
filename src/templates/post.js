@@ -26,7 +26,7 @@ class Post extends React.Component {
         node.querySelector(".close"),
         0.4,
         { opacity: 1, y: 0 },
-        { ease: Power3.easeOut, opacity: 0, y: 180 },
+        { ease: Power3.easeIn, opacity: 0, y: 180 },
         0
       )
       .fromTo(

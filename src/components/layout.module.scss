@@ -19,8 +19,7 @@
     transition: background-size 0.4s ease;
     color: #000;
   }
-  a:hover,
-  .active {
+  a:hover {
     background-size: 100% 100%;
     cursor: pointer;
   }
