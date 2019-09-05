@@ -1,8 +1,8 @@
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
-import React from "react";
+import { Link } from "gatsby"
+import PropTypes from "prop-types"
+import React from "react"
 
-import header from "./header.module.scss";
+import header from "./header.module.scss"
 
 const Header = ({ siteTitle }) => (
   <header className={header.header}>
@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => (
           </Link>
         </li>
         <li>
-          <Link activeClassName={header.active} to="blog">
+          <Link activeClassName={header.active} to="/blog">
             Blog
           </Link>
         </li>
@@ -29,14 +29,14 @@ const Header = ({ siteTitle }) => (
       </ul>
     </div>
   </header>
-);
+)
 
 Header.propTypes = {
-  siteTitle: PropTypes.string
-};
+  siteTitle: PropTypes.string,
+}
 
 Header.defaultProps = {
-  siteTitle: ``
-};
+  siteTitle: ``,
+}
 
-export default Header;
+export default Header
