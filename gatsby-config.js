@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `be water my friend 水汇聚成河`,
+    title: `紫罗兰薰猪草🐷`,
+    description: `be water my friend`,
     author: `阿江`,
   },
   plugins: [
@@ -43,6 +43,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-transition-link`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
