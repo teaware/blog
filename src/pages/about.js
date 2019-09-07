@@ -7,7 +7,7 @@ const About = () => {
   return (
     <Layout>
       <SEO title="About" />
-      <p>I currently teach full-time on Udemy.</p>
+      <p>在下阿江 请多指教</p>
     </Layout>
   )
 }

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `紫罗兰薰猪草🐷`,
+    title: `随意记事本`,
     description: `be water my friend`,
     author: `阿江`,
   },

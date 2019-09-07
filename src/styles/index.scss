@@ -624,3 +624,142 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+// modified
+@media (max-width: 34.365em) {
+  .links {
+    margin: 0 auto 3rem;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 750px;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  a {
+    // background-image: linear-gradient(to bottom, transparent 65%, #8c61ff 10%);
+    // background-size: 0% 100%;
+    // background-repeat: no-repeat;
+    // -webkit-transition: background-size 0.4s ease;
+    // -moz-transition: background-size 0.4s ease;
+    // -ms-transition: background-size 0.4s ease;
+    // -o-transition: background-size 0.4s ease;
+    // transition: background-size 0.4s ease;
+    text-decoration: none;
+    color: #000;
+  }
+  a:hover {
+    // background-size: 100% 100%;
+    color: #639;
+  }
+}
+
+.content {
+  flex-grow: 1;
+}
+
+main,
+footer {
+  padding: 0 2rem;
+}
+
+main {
+  margin-top: 6rem;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 2;
+  margin: 3rem 0 1rem;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.navbar {
+  padding: 1rem 2rem;
+  position: relative;
+  transition: background-color 0.3s linear;
+  h1 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  .menu {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+}
+.popup {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 2.7rem;
+  margin-top: 3.26rem;
+  transition: background-color 0.5s linear;
+  z-index: 1;
+}
+.links {
+  list-style: none;
+  margin-right: 3rem;
+  margin-bottom: 2rem;
+  text-align: right;
+  a {
+    transition: color 0.3s;
+    color: #fff;
+    font-size: 2rem;
+  }
+}
+
+.expanded {
+  .navbar {
+    background-color: #262c30;
+    a {
+      color: #fff;
+    }
+  }
+  .popup {
+    display: block;
+  }
+}
+.poped {
+  display: block;
+  background-color: #262c30;
+}
+
+// Home
+.home-title {
+  font-family: "Sentinel SSm A", "Sentinel SSm B", Georgia, serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 3rem;
+}
+
+// Blog list
+ol {
+  list-style: none;
+  margin: 0;
+  h2 {
+    margin: 0;
+  }
+  p {
+    color: #999;
+    font-style: italic;
+    font-size: 0.8rem;
+  }
+}
