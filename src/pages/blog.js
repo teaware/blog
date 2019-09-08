@@ -128,7 +128,7 @@ class Blog extends React.Component {
           {posts.map(edge => {
             return (
               <li key={edge.node.fields.slug}>
-                <h2>
+                <h2 className="blog-title">
                   <TransitionLink
                     to={`/blog/${edge.node.fields.slug}`}
                     exit={{

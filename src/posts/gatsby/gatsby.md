@@ -1,14 +1,16 @@
 ---
-title: "The Great Gatsby Bootcamp"
-date: "2019-04-04"
+title: "使用 Gatsby 和 Netlify 搭建一个无限滚动图片集"
+date: "2019-08-21"
 ---
 
-![Grass](./grass.png)
+![Catify](./catify.png)
 
-I just launched a new bootcamp!
+👆 成品示意图!
 
-## Topics Covered
+## 需要用到的技术（服务）
 
 1. Gatsby
-2. GraphQL
-3. React
+2. Netlify
+3. Unspliah
+
+`npm i -g gatsby-cli`

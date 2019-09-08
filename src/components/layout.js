@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
         <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
       </div>
-      <footer>© {new Date().getFullYear()} George Brown</footer>
+      <footer>© {new Date().getFullYear()} 阿江</footer>
     </div>
   )
 }

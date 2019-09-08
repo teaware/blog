@@ -641,20 +641,12 @@ pre tt:after {
   min-height: 100vh;
 
   a {
-    // background-image: linear-gradient(to bottom, transparent 65%, #8c61ff 10%);
-    // background-size: 0% 100%;
-    // background-repeat: no-repeat;
-    // -webkit-transition: background-size 0.4s ease;
-    // -moz-transition: background-size 0.4s ease;
-    // -ms-transition: background-size 0.4s ease;
-    // -o-transition: background-size 0.4s ease;
-    // transition: background-size 0.4s ease;
     text-decoration: none;
     color: #000;
+    transition: color 0.3s;
   }
   a:hover {
-    // background-size: 100% 100%;
-    color: #639;
+    color: #8c61ff;
   }
 }
 
@@ -688,6 +680,7 @@ header {
 .navbar {
   padding: 1rem 2rem;
   position: relative;
+  background-color: #fff;
   transition: background-color 0.3s linear;
   h1 {
     margin: 0;
@@ -719,8 +712,10 @@ header {
   margin-right: 3rem;
   margin-bottom: 2rem;
   text-align: right;
+  li {
+    margin-bottom: 1rem;
+  }
   a {
-    transition: color 0.3s;
     color: #fff;
     font-size: 2rem;
   }
@@ -731,6 +726,9 @@ header {
     background-color: #262c30;
     a {
       color: #fff;
+    }
+    a:hover {
+      color: #8c61ff;
     }
   }
   .popup {
@@ -761,5 +759,23 @@ ol {
     color: #999;
     font-style: italic;
     font-size: 0.8rem;
+  }
+}
+
+.blog-title {
+  a {
+    background-image: linear-gradient(to bottom, transparent 65%, #8c61ff 10%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    -webkit-transition: background-size 0.4s ease;
+    -moz-transition: background-size 0.4s ease;
+    -ms-transition: background-size 0.4s ease;
+    -o-transition: background-size 0.4s ease;
+    transition: background-size 0.4s ease;
+    color: #000;
+  }
+  a:hover {
+    background-size: 100% 100%;
+    color: #555;
   }
 }
