@@ -60,7 +60,7 @@ class Post extends React.Component {
           entry={{
             zIndex: 0,
           }}
-          to={`/blog/`}
+          to={`/blog`}
           className="close"
         >
           Close

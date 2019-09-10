@@ -154,7 +154,7 @@ class Blog extends React.Component {
             ref={n => (this.cover = n)}
             style={{
               position: "fixed",
-              background: this.props.bg || "#4b2571",
+              background: this.props.bg || "#8c61ff",
               top: 0,
               left: 0,
               width: "100vw",
