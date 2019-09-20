@@ -97,21 +97,13 @@ class Blog extends React.Component {
   }
 
   char(node) {
-    return new TimelineMax()
-      .staggerFromTo(
-        node.querySelectorAll(".char, p span"),
-        0.5,
-        { ease: Back.easeOut, opacity: 0, y: 40 },
-        { ease: Back.easeOut, opacity: 1, y: 0 },
-        0.05
-      )
-      .staggerFromTo(
-        node.querySelectorAll("h2, h3, h4, li"),
-        0.5,
-        { ease: Back.easeOut, opacity: 0, scale: 0.8 },
-        { ease: Back.easeOut, opacity: 1, scale: 1 },
-        0.05
-      )
+    return new TimelineMax().staggerFromTo(
+      node.querySelectorAll(".char, p span"),
+      0.5,
+      { ease: Back.easeOut, opacity: 0, y: 40 },
+      { ease: Back.easeOut, opacity: 1, y: 0 },
+      0.05
+    )
   }
 
   render() {

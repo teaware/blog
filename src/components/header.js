@@ -39,13 +39,13 @@ class Header extends React.Component {
         <div className={this.state.expanded ? "popup poped" : "popup"}>
           <ul className="links">
             <li>
-              <Link to="/about" onClick={this.handleClick}>
-                关于
+              <Link to="/blog" onClick={this.handleClick}>
+                Blog
               </Link>
             </li>
             <li>
-              <Link to="/blog" onClick={this.handleClick}>
-                博客
+              <Link to="/about" onClick={this.handleClick}>
+                About
               </Link>
             </li>
           </ul>
