@@ -7,50 +7,34 @@ class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      expanded: false,
+      darkmode: false,
     }
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick() {
     this.setState({
-      expanded: !this.state.expanded,
+      darkmode: !this.state.darkmode,
     })
   }
 
   render() {
     const { siteTitle } = this.props
     return (
-      <>
-        <header className={this.state.expanded ? "header expanded" : "header"}>
-          <div className="navbar">
-            <h1>
-              <Link to="/">{siteTitle}</Link>
-            </h1>
-            <div className="menu" onClick={this.handleClick}>
-              {this.state.expanded ? (
-                <Emoji symbol="🙈" label="close" />
-              ) : (
-                <Emoji symbol="🙉" label="open" />
-              )}
-            </div>
+      <header>
+        <div className="navbar">
+          <h1>
+            <Link to="/">{siteTitle}</Link>
+          </h1>
+          <div className="dark" onClick={this.handleClick}>
+            {this.state.darkmode ? (
+              <Emoji symbol="🌝" label="Full Moon Face" />
+            ) : (
+              <Emoji symbol="🌚" label="New Moon Face" />
+            )}
           </div>
-        </header>
-        <div className={this.state.expanded ? "popup poped" : "popup"}>
-          <ul className="links">
-            <li>
-              <Link to="/blog" onClick={this.handleClick}>
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" onClick={this.handleClick}>
-                About
-              </Link>
-            </li>
-          </ul>
         </div>
-      </>
+      </header>
     )
   }
 }

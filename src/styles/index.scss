@@ -675,6 +675,8 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  transition: transform 300ms ease;
   z-index: 2;
 }
 .navbar {
@@ -686,7 +688,7 @@ header {
     margin: 0;
     font-size: 1.25rem;
   }
-  .menu {
+  .dark {
     position: absolute;
     top: 1rem;
     right: 2rem;
@@ -707,38 +709,6 @@ header {
   transition: background-color 0.5s linear;
   z-index: 1;
 }
-.links {
-  list-style: none;
-  margin-right: 3rem;
-  margin-bottom: 2rem;
-  text-align: right;
-  li {
-    margin-bottom: 1rem;
-  }
-  a {
-    color: #fff;
-    font-size: 2rem;
-  }
-}
-
-.expanded {
-  .navbar {
-    background-color: #333;
-    a {
-      color: #fff;
-    }
-    a:hover {
-      color: #8c61ff;
-    }
-  }
-  .popup {
-    display: block;
-  }
-}
-.poped {
-  display: block;
-  background-color: #333;
-}
 
 // Pages
 .page-title {
@@ -750,33 +720,34 @@ header {
 }
 
 // Blog list
-ol {
+.blog-list {
   list-style: none;
   margin: 0;
   h2 {
     margin: 0;
+    a {
+      background-image: linear-gradient(
+        to bottom,
+        transparent 65%,
+        #8c61ff 10%
+      );
+      background-size: 0% 100%;
+      background-repeat: no-repeat;
+      -webkit-transition: background-size 0.4s ease;
+      -moz-transition: background-size 0.4s ease;
+      -ms-transition: background-size 0.4s ease;
+      -o-transition: background-size 0.4s ease;
+      transition: background-size 0.4s ease;
+      color: #000;
+    }
+    a:hover {
+      background-size: 100% 100%;
+      color: #555;
+    }
   }
   p {
     color: #999;
     font-style: italic;
     font-size: 0.8rem;
-  }
-}
-
-.blog-title {
-  a {
-    background-image: linear-gradient(to bottom, transparent 65%, #8c61ff 10%);
-    background-size: 0% 100%;
-    background-repeat: no-repeat;
-    -webkit-transition: background-size 0.4s ease;
-    -moz-transition: background-size 0.4s ease;
-    -ms-transition: background-size 0.4s ease;
-    -o-transition: background-size 0.4s ease;
-    transition: background-size 0.4s ease;
-    color: #000;
-  }
-  a:hover {
-    background-size: 100% 100%;
-    color: #555;
   }
 }
