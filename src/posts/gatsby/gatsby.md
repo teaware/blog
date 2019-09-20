@@ -3,6 +3,8 @@ title: "利用 Gatsby 和 Netlify 搭建一个无限滚动图片合集"
 date: "2019-08-21"
 ---
 
+![Catify](./catify.png)
+
 如今静态页面或者 [JAMStack](https://jamstack.org/) 这样的解耦开发架构的趋势如何？为什么许多顶尖的页面和应用程序开始转向使用“静态页面生成器”构建？因为它快速、安全、低成本、开发体验好...
 
 ### TL;DR
@@ -84,7 +86,7 @@ import Header from "./header"
 
 这里我们引入了 React, prop-types, useStaticQuery 和 GraphQL 其中 useStaticQuery 是在 Gatsby v2 版本才引进的，正因如此使得我们可以在非页面部件之间使用 GraphQL 数据请求。这些数据获取是静态的且发生在构建过程中，所以使用静态查询（Static Query）这个术语。
 
-`Header` 部件中包含导航栏同样被引入进来，稍后我们会创建这个 `Header`，先补全 `Layout` 部件的剩余代码
+包含导航栏的`Header` 部件（我们稍后创建）也被引入，这里我们先补全 `Layout` 部件的剩余代码
 
 ```js
 const Layout = ({ children }) => {
