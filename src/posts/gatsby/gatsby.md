@@ -235,3 +235,48 @@ import React from "react"
 import PropTypes from "prop-types"
 import InfiniteScroll from "react-infinite-scroll-component"
 ```
+
+这个图片集我们需要两个部件
+
+1. 一个部件作为展示图片集的视图
+2. 一个部件处理状态，数据抓取并传递到图片集视图
+
+这些部件可以拆分成更多子部件，但为了简单起见我们就保留这两个部件并且把它们写在同一个文件里
+在 `InfiniteImages.js` 里创建一个名为 `ImageGallery` 的部件。这个就是图片集视图
+
+```jsx
+const ImageGallery = ({ images, loading, fetchImages }) => {
+  // Create gallery here
+  return (
+    <InfiniteScroll
+      dataLength={images.length}
+      next={() => fetchImages()}
+      hasMore={true}
+      loader={
+        <p style={{ textAlign: "center", marginTop: "1%" }}>
+          更多阿猫要来了 🐈🐈...
+        </p>
+      }
+      endMessage={
+        <p style={{ textAlign: "center", marginTop: "1%" }}>
+          <b>没了没了😸</b>
+        </p>
+      }
+    >
+      <div className="image-grid">
+        {!loading
+          ? images.map(image => (
+              <div
+                className="image-item"
+                key={image.id}
+                style={{ backgroundColor: image.color }}
+              >
+                <img src={image.urls.regular} alt={image.alt_description} />
+              </div>
+            ))
+          : ""}
+      </div>
+    </InfiniteScroll>
+  )
+}
+```
