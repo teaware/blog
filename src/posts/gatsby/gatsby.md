@@ -280,3 +280,5 @@ const ImageGallery = ({ images, loading, fetchImages }) => {
   )
 }
 ```
+
+`InfiniteScroll` 部件
