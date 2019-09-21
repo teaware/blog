@@ -169,7 +169,7 @@ export default Header
 
 在 `src/pages/index.js` 文件中删除原有的代码引入依赖项
 
-```jsx
+```jsx {5}
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
