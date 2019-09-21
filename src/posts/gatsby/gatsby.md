@@ -76,7 +76,7 @@ gatsby develop
 
 页面布局会被视作一个可复用部件来开发。 `components/layout.js` 文件目前输出的是 Gatsby 默认起始页的布局。我们删除它原来的所有内容，引入我们需要的东西
 
-```js
+```jsx
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -88,7 +88,7 @@ import Header from "./header"
 
 包含导航栏的`Header` 部件（我们稍后创建）也被引入，这里我们先补全 `Layout` 部件的剩余代码
 
-```js
+```jsx
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -122,4 +122,116 @@ Layout.propTypes = {
 }
 
 export default Layout
+```
+
+这里 `useStaticQuery` 用于从 siteMetadata 获取页面标题，`siteTitle` 随即作为参数从 header 部件传递过来。
+下一步我们打开位于根目录的 `gatsby-config.js` 文件修改页面标题和描述
+
+```js
+siteMetadata: {
+  title: `Catify`,
+  description: `A cat infinite scroll image gallery built with Gatsby, Netify & Unsplash.`,
+  author: `@author`
+},
+```
+
+现在编辑 `components/header.js` 文件
+
+```jsx
+import { Link } from "gatsby"
+import React from "react"
+
+const Header = ({ siteTitle }) => (
+  <header>
+    <nav className="navbar is-dark" style={{ marginBottom: "2em" }}>
+      <div className="navbar-brand">
+        <Link
+          to="/"
+          style={{
+            margin: "0 auto",
+            padding: "10px",
+          }}
+          className="has-text-white is-size-3"
+        >
+          {siteTitle} 🐈
+        </Link>
+      </div>
+    </nav>
+  </header>
+)
+
+export default Header
+```
+
+### 创建新页面
+
+#### 首页
+
+在 `src/pages/index.js` 文件中删除原有的代码引入依赖项
+
+```jsx
+import React from "react"
+import { Link } from "gatsby"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import "bulma/css/bulma.min.css"
+```
+
+注意 Bulma 样式文件的引入方式，接下来定义此部件的导出部分
+
+```jsx
+const IndexPage = () => (
+  <Layout>
+    <SEO title="Home" />
+    <div className="has-text-centered" style={{ marginTop: "20%" }}>
+      <h1 className="is-size-2">欢迎光临！...喵的世界😹</h1>
+      <button className="button is-dark is-large" style={{ marginTop: "10%" }}>
+        <Link to="/gallery" className="has-text-white">
+          OK 👌
+        </Link>
+      </button>
+    </div>
+  </Layout>
+)
+
+export default IndexPage
+```
+
+我们使用了 Bulma 内建的 class 名称来定义我们的页面样式
+
+#### 图册页面
+
+在同一路径 `src/pages` 下，新建一个 `gallery.js` 文件。与首页类似，我们引入然后导出...
+
+```jsx
+import React from "react"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import InfiniteImages from "../components/InfiniteImages"
+
+const Gallery = () => {
+  return (
+    <Layout>
+      <SEO title="Gallery" />
+      <h1 className="is-size-5" style={{ marginBottom: "1.0875rem" }}>
+        如今的丛林法则，就像古老而又真实的天空，是这样的，越往下翻，你就会看到越多猫咪😹😹😹
+      </h1>
+      <InfiniteImages />
+    </Layout>
+  )
+}
+
+export default Gallery
+```
+
+### 创建图片集
+
+使用 Gatsby 这样的工具好处在于我们可以在部件之间发起 API 请求，并在运行过程中把数据传递到 DOM 让你在静态工作环境中有种异步开发的爽快感。我们将从 [Unsplash](https://unsplash.com/)获取图片，用 `react-infinite-scroll-component` 实现无限滚动。
+
+在 `src/components` 路径下新建文件 `InfiniteImages.js`
+
+```jsx
+import React from "react"
+import PropTypes from "prop-types"
+import InfiniteScroll from "react-infinite-scroll-component"
 ```
