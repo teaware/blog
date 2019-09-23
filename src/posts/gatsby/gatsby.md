@@ -25,11 +25,11 @@ date: "2019-08-21"
 - 配置 netlify.toml
 - 部署到 Netlify
 
-### <a name="why-gatsby">为什么使用 Gatsby
+### <a name="why-gatsby"></a>为什么使用 Gatsby
 
 [Gatsby](https://www.gatsbyjs.org/) 是一个当下时髦的开源静态页面生成器。它具备构建高性能、安全、低成本、可部署的页面的能力。后面的不翻译了，总之就是很好 😂
 
-### <a name="why-netlify">为什么使用 Netlify
+### <a name="why-netlify"></a>为什么使用 Netlify
 
 [Netlify](https://www.netlify.com/) 为现代应用程序提供了很好的部署体验，直观、便捷。
 
