@@ -54,7 +54,7 @@ gatsby new catify
 ```
 
 该命令会克隆 Gatsby 默认起始页到你的指定文件夹，同时安装该项目的所有依赖包。
-接下来我们进入项目文件夹并安装几个新的依赖
+接下来我们进入该目录并安装几个新的依赖
 
 ```bash
 cd catify && npm i --save axios bulma react-infinite-scroll-component
@@ -197,7 +197,7 @@ const IndexPage = () => (
 export default IndexPage
 ```
 
-我们使用了 Bulma 内建的 class 名称来定义我们的页面样式
+我们使用了 Bulma 内建的 class 名称来定义样式
 
 #### 图册页面
 
@@ -281,4 +281,250 @@ const ImageGallery = ({ images, loading, fetchImages }) => {
 }
 ```
 
-`InfiniteScroll` 部件
+在相同路径下，我们新建一个 `gallery.css` 文件来定义图片集的样式
+
+```css
+.image-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repect(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(50px, auto);
+  -webkit-perspective: 1300px;
+  perspective: 1300px;
+}
+
+.image-grid .image-item:nth-child(5n) {
+  grid-column-end: span 2;
+}
+
+.image-grid img {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+```
+
+然后把它引入到 `InfiniteImages.js` 文件
+
+```jsx
+import "./gallery.css"
+```
+
+接下来我们在 `InfiniteImages.js` 文件中创建一个名为 `InfiniteImages` 的部件
+这个部件会用到 React 的 `useState` 和 `useEffect` 钩子来处理状态和生命周期。Axios 也会被用于发起 HTTP 请求。需要引入它们。
+
+```jsx
+import React, { useState, useEffect } from "react"
+import axios from "axios"
+```
+
+引入之后，完成定义 `InfiniteImages` 部件：
+
+```js
+const InfiniteImages = () => {
+  // Hold state
+  const [images, setImages] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  // Fetch images on component mount
+  useEffect(() => {
+    fetchImages()
+  }, [])
+
+  // Fetch Images from functions
+  const fetchImages = () => {
+    axios("/.netlify/functions/fetch").then(res => {
+      setImages([...images, ...res.data.images])
+      setLoading(false)
+    })
+  }
+  return (
+    <ImageGallery images={images} loading={loading} fetchImages={fetchImages} />
+  )
+}
+```
+
+指定 `ImageGallery` 的参数类型（Prototypes）并 export `InfiniteImage`
+
+```jsx
+import...
+
+const ImageGallery = ({ images, loading, fetchImages }) => {
+  // Create gallery here
+  return (
+    // Component logic here
+  )
+}
+
+const InfiniteImages = () => {
+  // Component logic here
+}
+
+ImageGallery.propTypes = {
+  images: PropTypes.array,
+  loading: PropTypes.bool,
+  fetchImages: PropTypes.func,
+}
+
+export default InfiniteImages
+```
+
+### 创建 Netlify 函数
+
+#### 安装函数构建工具
+
+`netlify-lambda` CLI 可以在本地运行函数也可以部署到服务器。通过以下命令安装 netlify-lambda
+
+```bash
+npm i -g netlify-lambda
+```
+
+#### 定义 Fetch 函数
+
+在 `src` 路径下新建 `lambda` 文件夹。在根目录新建 `netlify.toml` 文件并写入
+
+```toml
+[build]
+  Functions = "functions"
+```
+
+然后 `src/lambda` 下新建 `fetch.js`
+
+```jsx
+import axios from "axios"
+import config from "../../config"
+
+exports.handler = function(event, context, callback) {
+  const apiRoot = "https://api.unsplash.com"
+  const accessKey = process.env.ACCESS_KEY || config.accessKey
+
+  const catEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&collections='4365121,1043053'`
+
+  axios.get(catEndpoint).then(res => {
+    callback(null, {
+      statusCode: 200,
+      body: JSON.stringify({
+        images: res.data,
+      }),
+    })
+  })
+}
+```
+
+在根目录新建 `config.js` 文件保存从 Unsplash 生成的 API 密钥
+
+```jsx
+const config = {
+  accessKey: "<Add access key>",
+}
+
+export default config
+```
+
+确保你把该文件添加到 `.gitignore` 以免被添加到你的 repo
+在本地运行服务器
+
+```bash
+netlify-lambda serve src/lambda
+```
+
+在浏览器中打开 `[http://ocalhost:9000/fetch](http://ocalhost:9000/fetch)` 可以看到从 API 获得的数据
+输入以下指令，创建 build 版本以便于部署
+
+```bash
+netlify-lambda build src/lambda
+```
+
+#### 在本地运行
+
+在本地开发环执行 API 请求会遇到 CORS 错误，那么 [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware) 会解决我们的难题么？
+
+```bash
+npm i --save-dev http-proxy-middleware
+```
+
+在 `gatsby-config.js` 中
+
+```jsx
+let proxy = require("http-proxy-middleware")
+
+module.exports = {
+  siteMetadata: {
+    // define site metadata
+  },
+  // Enables the use of function URLs locally
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      proxy({
+        target: "http://localhost:9000",
+        pathRewrite: { "/.netlify/functions/": "" },
+      })
+    )
+  },
+  plugins: [
+    // define plugins
+  ],
+}
+```
+
+然后在 `src/components/InfiniteImages.js` 中
+
+```jsx
+import // ...
+
+const ImageGallery = ({ images, loading, fetchImages }) => {
+  // Component logic here
+}
+
+const InfiniteImages = () => {
+  // Hold state
+  const [images, setImages] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  // Fetch images on component mount
+  useEffect(() => {
+    fetchImages()
+  }, [])
+
+  // Fetch Images from functions
+  const fetchImages = () => {
+    axios("/.netlify/functions/fetch").then(res => {
+      setImages([...images, ...res.data.images])
+      setLoading(false)
+    })
+  }
+  return (
+    <ImageGallery images={images} loading={loading} fetchImages={fetchImages} />
+  )
+}
+
+ImageGallery.propTypes = {
+    // Define proptypes
+}
+
+export default InfiniteImages
+```
+
+重启 Gatsby 本地服务器 此时在本地也可以看到我们的 app 正常运行了
+
+### 部署到 Netlify
+
+两个 build 动作
+
+```bash
+netlify-lambda build src/lambda
+```
+
+```bash
+gatsby build
+```
+
+#### 推送到 Git 服务商
+
+例如 [GitHub](https://github.com/) 新建一个 repo 然后推送...
+
+#### Netlify
+
+首先注册 Netlify 如果没有注册过，然后点击 "New site from Git" 按钮，过程非常简单，这里不详细介绍了。
