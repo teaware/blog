@@ -230,7 +230,7 @@ export default Gallery
 
 ### 创建图片集
 
-使用 Gatsby 这样的工具好处在于我们可以在部件之间发起 API 请求，并在运行过程中把数据传递到 DOM 让你在静态工作环境中有种异步开发的爽快感。我们将从 [Unsplash](https://unsplash.com/)获取图片，用 `react-infinite-scroll-component` 实现无限滚动。
+使用 Gatsby 这样的工具好处在于我们可以在部件之间发起 API 请求，并在运行过程中把数据传递到 DOM 让你在静态工作环境中有种异步开发的爽快感。我们将从 [Unsplash](https://unsplash.com/) 获取图片，用 `react-infinite-scroll-component` 实现无限滚动。
 
 在 `src/components` 路径下新建文件 `InfiniteImages.js`
 
@@ -433,7 +433,7 @@ export default config
 netlify-lambda serve src/lambda
 ```
 
-在浏览器中打开 [http://ocalhost:9000/fetch](http://ocalhost:9000/fetch) 可以看到从 API 获得的数据
+在浏览器中打开 [http://localhost:9000/fetch](http://localhost:9000/fetch) 可以看到从 API 获得的数据
 输入以下指令，创建 build 版本以便于部署
 
 ```bash
