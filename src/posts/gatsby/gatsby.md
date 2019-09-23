@@ -5,9 +5,15 @@ date: "2019-08-21"
 
 ![Catify](./catify.png)
 
+**Note:** 本文由 [Build an Infinite Scroll Image Gallery with Gatsby and Netlify Functions](https://scotch.io/tutorials/build-an-infinite-scroll-image-gallery-with-gatsby-and-netlify-functions) 翻译而来，敬请阅读原文
+
+:point_right: [Demo](https://catify.netlify.com/) :point_right: [Code](https://github.com/teaware/catify)
+
 如今静态页面或者 [JAMStack](https://jamstack.org/) 这样的解耦开发架构的趋势如何？为什么许多顶尖的页面和应用程序开始转向使用“静态页面生成器”构建？因为它快速、安全、低成本、开发体验好...
 
 ### TL;DR
+
+{: #tl-dr}
 
 在这篇文章中，我们将
 
@@ -23,9 +29,13 @@ date: "2019-08-21"
 
 ### 为什么使用 Gatsby
 
+{: #why-gatsby}
+
 [Gatsby](https://www.gatsbyjs.org/) 是一个当下时髦的开源静态页面生成器。它具备构建高性能、安全、低成本、可部署的页面的能力。后面的不翻译了，总之就是很好 😂
 
 ### 为什么使用 Netlify
+
+{: #why-netlify}
 
 [Netlify](https://www.netlify.com/) 为现代应用程序提供了很好的部署体验，直观、便捷。
 
@@ -132,7 +142,7 @@ siteMetadata: {
   title: `Catify`,
   description: `A cat infinite scroll image gallery built with Gatsby, Netify & Unsplash.`,
   author: `@author`
-},
+}
 ```
 
 现在编辑 `components/header.js` 文件
@@ -429,7 +439,7 @@ export default config
 netlify-lambda serve src/lambda
 ```
 
-在浏览器中打开 `[http://ocalhost:9000/fetch](http://ocalhost:9000/fetch)` 可以看到从 API 获得的数据
+在浏览器中打开 [http://ocalhost:9000/fetch](http://ocalhost:9000/fetch) 可以看到从 API 获得的数据
 输入以下指令，创建 build 版本以便于部署
 
 ```bash
