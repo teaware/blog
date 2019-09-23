@@ -5,6 +5,14 @@
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   a {
     text-decoration: underline;
+    color: #000;
+    padding: 0 2px;
+    border-radius: 3px;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+      background-color: #8c61ff;
+    }
   }
   h1,
   h2,
@@ -26,6 +34,21 @@
     color: #888;
     font-size: 0.8rem;
     font-style: italic;
+  }
+  em {
+    display: block;
+    text-align: center;
+    margin: 2rem 0 3rem;
+    a {
+      text-decoration: none;
+      margin: 0 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #657aed;
+      color: #fff;
+      &:hover {
+        background-color: #7b8ef3;
+      }
+    }
   }
 }
 
