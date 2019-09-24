@@ -43,7 +43,7 @@ Node.js 以及它的包管理工具 NPM 是必需的， 请确认你的机器上
 node -v && npm -v
 ```
 
-此命令会输出 node 和 npm 的版本号。如果没有妥善安装，请前往[Node.js](https://nodejs.org/)下载安装。
+此命令会输出 node 和 npm 的版本号。如果没有妥善安装，请前往 [Node.js](https://nodejs.org/) 下载安装。
 
 安装 Gatsby CLI
 
@@ -90,7 +90,7 @@ import Header from "./header"
 
 这里我们引入了 React, prop-types, useStaticQuery 和 GraphQL 其中 useStaticQuery 是在 Gatsby v2 版本才引进的，正因如此使得我们可以在非页面部件之间使用 GraphQL 数据请求。这些数据获取是静态的且发生在构建过程中，所以使用静态查询（Static Query）这个术语。
 
-包含导航栏的`Header` 部件（我们稍后创建）也被引入，这里我们先补全 `Layout` 部件的剩余代码
+包含导航栏的 `Header` 部件（我们稍后创建）也被引入，这里我们先补全 `Layout` 部件的剩余代码
 
 ```jsx
 const Layout = ({ children }) => {
@@ -433,7 +433,7 @@ export default config
 netlify-lambda serve src/lambda
 ```
 
-在浏览器中打开 [http://localhost:9000/fetch](http://localhost:9000/fetch) 可以看到从 API 获得的数据
+在浏览器中打开 [`http://localhost:9000/fetch`](http://localhost:9000/fetch) 可以看到从 API 获得的数据
 输入以下指令，创建 build 版本以便于部署
 
 ```bash
@@ -531,4 +531,4 @@ gatsby build
 
 #### Netlify
 
-首先注册 Netlify 如果没有注册过，然后点击 "New site from Git" 按钮，过程非常简单，这里不详细介绍了。
+在 [Netlify](https://www.netlify.com/) 创建账户，然后点击 "New site from Git" 按钮，部署过程非常简单，这里不详细介绍了。

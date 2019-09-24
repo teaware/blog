@@ -4,14 +4,11 @@
   background-color: #fff;
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   a {
-    text-decoration: underline;
-    color: #000;
-    padding: 0 2px;
-    border-radius: 3px;
+    color: #ff6150;
+    box-shadow: 0 1px 0 0 currentColor;
     &:hover {
-      color: #fff;
-      text-decoration: none;
-      background-color: #8c61ff;
+      color: #ff6150;
+      box-shadow: none;
     }
   }
   h1,
@@ -38,18 +35,27 @@
     font-size: 0.8rem;
     font-style: italic;
   }
+  span img {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+  }
   em {
     display: block;
     text-align: center;
     margin: 2rem 0 3rem;
+    font-style: normal;
     a {
+      font-family: Helvetica, Arial, sans-serif;
       text-decoration: none;
       margin: 0 1rem;
       padding: 0.5rem 1rem;
-      background-color: #657aed;
-      color: #fff;
+      background-color: #d6d6e9;
+      color: #333090;
+      border-radius: 3px;
+      box-shadow: none;
       &:hover {
-        background-color: #7b8ef3;
+        color: #fff;
+        text-decoration: none;
+        background-color: #333090;
       }
     }
   }
