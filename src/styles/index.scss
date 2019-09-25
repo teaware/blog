@@ -628,6 +628,10 @@ pre tt:after {
 // modified
 // source: https://github.com/gaearon/overreacted.io/blob/master/src/utils/global.css
 body {
+  --pink: rgb(255, 167, 196);
+  background-color: var(--bg);
+}
+body {
   --bg: #ffffff;
   --header: var(--pink);
   --textNormal: #222;
@@ -679,13 +683,6 @@ main {
   margin-top: 6rem;
 }
 
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  line-height: 2;
-  margin: 3rem 0 1rem;
-}
-
 header {
   width: 100%;
   position: fixed;
@@ -731,8 +728,8 @@ header {
 
 // Pages
 .page-title {
-  font-family: "Sentinel SSm A", "Sentinel SSm B", Georgia, serif;
-  // font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  // font-family: "Sentinel SSm A", "Sentinel SSm B", Georgia, serif;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   font-weight: 400;
   font-style: normal;
   font-size: 3rem;
@@ -768,5 +765,20 @@ header {
     color: #999;
     font-style: italic;
     font-size: 0.8rem;
+  }
+}
+
+.container footer {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 0.9rem;
+  line-height: 2;
+  margin: 3rem 0 1rem;
+  color: #555;
+  a {
+    color: #ff6150;
+    box-shadow: 0 1px 0 0 currentColor;
+    &:hover {
+      box-shadow: none;
+    }
   }
 }
