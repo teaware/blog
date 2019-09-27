@@ -1,19 +1,18 @@
-import React from "react";
-import { Link } from "gatsby";
-
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import React from "react"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Instagram from "../components/instagram"
 
 const NotFound = () => {
   return (
     <Layout>
       <SEO title="404: Not found" />
-      <h1>Page not found</h1>
-      <p>
-        <Link to="/">返回主页</Link>
-      </p>
+      <h1>使徒侵入</h1>
+      <p>Page not found!</p>
+      <p>页面丢失！</p>
+      <Instagram />
     </Layout>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound

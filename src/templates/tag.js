@@ -1,35 +1,13 @@
+// https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/#add-tags-to-your-markdown-files
 import React from "react"
 import { graphql } from "gatsby"
 import { TimelineMax, Back, Power1 } from "gsap"
 import TransitionLink, { TransitionPortal } from "gatsby-plugin-transition-link"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-          }
-        }
-      }
-    }
-  }
-`
-
-class Index extends React.Component {
+class Tag extends React.Component {
   constructor(props) {
     super(props)
 
@@ -97,18 +75,21 @@ class Index extends React.Component {
 
   render() {
     const { data } = this.props
-    const posts = data.allMarkdownRemark.edges
-
+    const { tag } = this.props.pageContext
+    const { edges } = data.allMarkdownRemark
     return (
       <Layout>
-        <SEO title="Home" />
-        <ol className="blog-list" ref={n => (this.mod = n)}>
-          {posts.map(edge => {
-            return (
-              <li key={edge.node.fields.slug}>
-                <h2>
+        <SEO title={tag} />
+        <div ref={n => (this.mod = n)}>
+          <h1>#{tag}</h1>
+          <ul className="blog-list">
+            {edges.map(({ node }) => {
+              const { title, date } = node.frontmatter
+              const { slug } = node.fields
+              return (
+                <li key={slug}>
                   <TransitionLink
-                    to={`/${edge.node.fields.slug}`}
+                    to={`/${slug}`}
                     exit={{
                       length: 1,
                       trigger: ({ exit }) => this.moveInDirection(exit, "left"),
@@ -119,20 +100,22 @@ class Index extends React.Component {
                       trigger: ({ node }) => this.char(node),
                     }}
                   >
-                    {edge.node.frontmatter.title}
+                    {title} ({date})
                   </TransitionLink>
-                </h2>
-                <p>{edge.node.frontmatter.date}</p>
-              </li>
-            )
-          })}
-        </ol>
+                </li>
+              )
+            })}
+          </ul>
+          <AniLink cover direction="down" bg="#639c6b" to="/tags">
+            All tags
+          </AniLink>
+        </div>
         <TransitionPortal>
           <div
             ref={n => (this.cover = n)}
             style={{
               position: "fixed",
-              background: "#8c61ff",
+              background: "#ccb833",
               top: 0,
               left: 0,
               width: "100vw",
@@ -146,4 +129,27 @@ class Index extends React.Component {
   }
 }
 
-export default Index
+export default Tag
+
+export const pageQuery = graphql`
+  query($tag: String) {
+    allMarkdownRemark(
+      limit: 2000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
+    }
+  }
+`

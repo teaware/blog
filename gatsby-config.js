@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `随意记事本`,
+    title: `阿江记事本`,
     description: `be water my friend`,
-    author: `阿江`,
+    author: `@anikijiang`,
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -26,11 +26,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Veryben`,
+        name: `阿江记事本`,
         short_name: `Veryben`,
         start_url: `/`,
-        background_color: `#fdebd3`,
-        theme_color: `#a75e54`,
+        background_color: `#fff`,
+        theme_color: `#8c61ff`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },

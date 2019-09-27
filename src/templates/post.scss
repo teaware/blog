@@ -11,7 +11,6 @@
       box-shadow: none;
     }
   }
-  h1,
   h2,
   h3,
   h4,
@@ -19,7 +18,7 @@
   h6 {
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   }
-  h1 {
+  h2 {
     font-size: 2rem;
     margin: 0;
     span {
@@ -34,6 +33,22 @@
     color: #888;
     font-size: 0.8rem;
     font-style: italic;
+    margin: 0.2rem 0;
+  }
+  .tags {
+    list-style: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    margin: 0 0 1.2rem;
+    li {
+      display: inline;
+      a {
+        color: #333090;
+        box-shadow: none;
+        margin-right: 6px;
+      }
+    }
   }
   span img {
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);

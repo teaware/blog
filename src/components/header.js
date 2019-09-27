@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PropTypes from "prop-types"
 import React from "react"
 import Emoji from "./emoji"
@@ -24,9 +24,11 @@ class Header extends React.Component {
       <header>
         <div className="navbar">
           <h1>
-            <Link to="/">{siteTitle}</Link>
+            <AniLink cover direction="down" bg="#8c61ff" to="/">
+              {siteTitle}
+            </AniLink>
           </h1>
-          <div className="dark" onClick={this.handleClick}>
+          <div className="tog" onClick={this.handleClick}>
             {this.state.darkmode ? (
               <Emoji symbol="🌝" label="Full Moon Face" />
             ) : (

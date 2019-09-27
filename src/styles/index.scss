@@ -655,14 +655,19 @@ body.dark {
   --inlineCode-text: #e6e6e6;
 }
 
+.colors {
+  --home: #8c61ff;
+  --tags: #639c6b;
+  --tag: #ccb833;
+}
+
 .container {
   margin: 0 auto;
   max-width: 750px;
-
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
+  background-color: #fff;
   a {
     text-decoration: none;
     color: #000;
@@ -693,37 +698,58 @@ header {
   z-index: 2;
 }
 .navbar {
-  padding: 1rem 2rem;
+  padding: 1rem 1.3125rem;
   position: relative;
   background-color: #fff;
   transition: background-color 0.3s linear;
   h1 {
+    display: inline-block;
     margin: 0;
     font-size: 1.25rem;
     a:hover {
       color: #666;
     }
   }
-  .dark {
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
+  .tog {
+    float: right;
     font-size: 1.25rem;
     line-height: 1.2;
     cursor: pointer;
   }
 }
-.popup {
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 2.7rem;
-  margin-top: 3.26rem;
-  transition: background-color 0.5s linear;
-  z-index: 1;
+
+// Home
+.randomgram {
+  margin: 0 auto;
+  // transition: width 0.5s linear, height 1s linear;
+  overflow: hidden;
+  img {
+    margin: 0;
+    transition: border-radius 0.6s ease-in-out 0.5s, width 1s linear;
+  }
+}
+.img-loading {
+  width: 0;
+  height: 0;
+  img {
+    width: 0;
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+.img-loaded {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  margin-bottom: 1.45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 320px;
+    opacity: 1;
+    border-radius: 5px;
+  }
 }
 
 // Pages
@@ -773,7 +799,6 @@ header {
   font-size: 0.9rem;
   line-height: 2;
   margin: 3rem 0 1rem;
-  color: #555;
   a {
     color: #ff6150;
     box-shadow: 0 1px 0 0 currentColor;
