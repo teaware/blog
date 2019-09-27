@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import config from "../../config"
 
 // const ImageSet = ({ images }) => {
 //   return (
@@ -22,7 +21,7 @@ const Instagram = () => {
   }, [])
 
   const fetch = () => {
-    const token = config.accessKey
+    const token = "5632485.17be2c5.a0dde7bc53794f219dafa8eaa22061de"
     const num_photos = 20 // 最大值是20 默认也是20
 
     axios
