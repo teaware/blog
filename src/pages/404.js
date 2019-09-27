@@ -7,7 +7,7 @@ const NotFound = () => {
   return (
     <Layout>
       <SEO title="404: Not found" />
-      <h1>使徒侵入</h1>
+      <h2>使徒侵入</h2>
       <p>Page not found!</p>
       <p>页面丢失！</p>
       <Instagram />

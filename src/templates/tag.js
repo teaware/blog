@@ -81,7 +81,7 @@ class Tag extends React.Component {
       <Layout>
         <SEO title={tag} />
         <div ref={n => (this.mod = n)}>
-          <h1>#{tag}</h1>
+          <h2>#{tag}</h2>
           <ul className="blog-list">
             {edges.map(({ node }) => {
               const { title, date } = node.frontmatter

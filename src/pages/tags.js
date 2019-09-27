@@ -13,7 +13,7 @@ const Tags = ({ data }) => {
     <Layout>
       <div>
         <SEO title="Tags" />
-        <h1>Tags</h1>
+        <h2>Tags</h2>
         <ul>
           {allTags.map(tag => (
             <li key={tag.fieldValue}>
