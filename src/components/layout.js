@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
       </div>
       <footer>
         © {new Date().getFullYear()} 阿江
-        <div style={{ float: "right" }}>
+        <div className="social-links">
           <a
             href="https://twitter.com/anikijiang"
             target="_blank"
