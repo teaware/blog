@@ -47,7 +47,7 @@ const Instagram = () => {
   }
 
   return (
-    <div className={"randomgram " + (loaded ? "img-loaded" : "img-loading")}>
+    <div className="randomgram">
       {loaded ? (
         <p>
           Wait... We found a image from{" "}
@@ -62,12 +62,14 @@ const Instagram = () => {
       ) : (
         ""
       )}
-      <img
-        src={random}
-        alt={loaded ? "Freedom" : "Not Yet"}
-        onLoad={() => load()}
-      />
-      {/* <ImageSet images={images} /> */}
+      <div className={loaded ? "img-loaded" : "img-loading"}>
+        <img
+          src={random}
+          alt={loaded ? "Freedom" : "Not Yet"}
+          onLoad={() => load()}
+        />
+        {/* <ImageSet images={images} /> */}
+      </div>
     </div>
   )
 }
