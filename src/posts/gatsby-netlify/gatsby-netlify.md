@@ -1,6 +1,6 @@
 ---
 title: "利用 Gatsby 和 Netlify 搭建一个无限滚动图片合集"
-tags: ["gatsby", "netlify", "infinite-scroll", "jamstack"]
+tags: ["Gatsby", "Netlify", "infinite-scroll", "JAMStack"]
 date: "2019-08-21"
 ---
 

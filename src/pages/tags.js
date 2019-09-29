@@ -2,6 +2,7 @@
 
 import React from "react"
 import { graphql } from "gatsby"
+import { kebabCase } from "lodash"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -21,7 +22,7 @@ const Tags = ({ data }) => {
                 cover
                 direction="left"
                 bg="#639c6b"
-                to={`/tags/${tag.fieldValue}`}
+                to={`/tags/${kebabCase(tag.fieldValue)}`}
               >
                 {tag.fieldValue} ({tag.totalCount})
               </AniLink>

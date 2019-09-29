@@ -6,9 +6,10 @@
   a {
     color: #ff6150;
     box-shadow: 0 1px 0 0 currentColor;
+    transition: box-shadow ease-out 0.2s;
     &:hover {
       color: #ff6150;
-      box-shadow: none;
+      box-shadow: 0 3px 0 0 currentColor;
     }
   }
   h2,
