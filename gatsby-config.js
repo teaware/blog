@@ -27,7 +27,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `阿江记事本`,
-        short_name: `Veryben`,
+        short_name: `阿江记事本`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#8c61ff`,

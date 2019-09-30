@@ -1,10 +1,13 @@
 ---
 title: "Gatsby 静态页面构建摘要"
-tags: ["gatsby", "note", "to-dos"]
+tags: ["Gatsby", "note", "to-dos"]
 date: "2019-09-27"
 ---
 
+![Gatsby](./gastby.gif)
+
 近段时间打算学习 React 但是没有很好的切入点。忽然有一天发现了 Gatsby 一个非常棒的框架，免费、开源、基于 React... 近乎完美 💯
+
 本站就是用 Gatsby 开发的，目前还在探索中。在此记录一下开发进展和接下来要做的事项 📝
 
 - ✅ 在本地运行 Gatsby
