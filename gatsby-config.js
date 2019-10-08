@@ -57,7 +57,7 @@ module.exports = {
               // setting this to '{ sh: "bash" }' will let you use
               // the language "sh" which will highlight using the
               // bash highlighter.
-              aliases: { sh: "bash" },
+              aliases: {},
               // This toggles the display of line numbers globally alongside the code.
               // To use it, add the following line in src/layouts/index.js
               // right after importing the prism color scheme:
