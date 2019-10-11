@@ -9,6 +9,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-dark-mode`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-transition-link`,
     {

@@ -89,20 +89,24 @@ class Tag extends React.Component {
               const { slug } = node.fields
               return (
                 <li key={slug}>
-                  <TransitionLink
-                    to={`/${slug}`}
-                    exit={{
-                      length: 1,
-                      trigger: ({ exit }) => this.moveInDirection(exit, "left"),
-                      // state: { char: "exit state" },
-                    }}
-                    entry={{
-                      delay: 0.5,
-                      trigger: ({ node }) => this.char(node),
-                    }}
-                  >
-                    {title} ({date})
-                  </TransitionLink>
+                  <h3>
+                    <TransitionLink
+                      to={`/${slug}`}
+                      exit={{
+                        length: 1,
+                        trigger: ({ exit }) =>
+                          this.moveInDirection(exit, "left"),
+                        // state: { char: "exit state" },
+                      }}
+                      entry={{
+                        delay: 0.5,
+                        trigger: ({ node }) => this.char(node),
+                      }}
+                    >
+                      {title}
+                    </TransitionLink>
+                  </h3>
+                  <small>{date}</small>
                 </li>
               )
             })}
