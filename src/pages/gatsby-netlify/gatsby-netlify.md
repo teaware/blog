@@ -527,10 +527,10 @@ netlify-lambda build src/lambda
 gatsby build
 ```
 
-#### 推送到 Git 服务商
+#### 推送到 GitHub
 
-例如 [GitHub](https://github.com/) 新建一个 repo 然后推送...
+在 [GitHub](https://github.com/) 新建一个 repo 然后推送...
 
 #### Netlify
 
-在 [Netlify](https://www.netlify.com/) 创建账户，然后点击 "New site from Git" 按钮，部署过程非常简单，这里不详细介绍了。
+在 [Netlify](https://www.netlify.com/) 创建账户，然后点击 "New site from Git" 按钮，部署过程非常简单，自己研究吧。
