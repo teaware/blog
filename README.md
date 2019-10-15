@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Veryben" src="https://veryben.com/icons/icon-144x144.png" width="60" />
+  <img alt="Veryben" src="https://veryben.com/icons/icon144x144.png" width="60" />
 </p>
 <h1 align="center">
   阿江记事本
