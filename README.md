@@ -5,6 +5,4 @@
   阿江记事本
 </h1>
 
-## [veryben.com](https://veryben.com/)
-
-My personal blog. Forked from [Gatsby blog starter](https://github.com/gatsbyjs/gatsby-starter-blog). Syntax theme based on [Sarah Drasner's Night Owl](https://github.com/sdras/night-owl-vscode-theme/).
+My personal blog [veryben.com](https://veryben.com/). Forked from [Gatsby blog starter](https://github.com/gatsbyjs/gatsby-starter-blog). Syntax theme based on [Sarah Drasner's Night Owl](https://github.com/sdras/night-owl-vscode-theme/).
