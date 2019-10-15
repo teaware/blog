@@ -41,11 +41,11 @@ class Header extends React.Component {
                     checked={theme === "dark"}
                   />
                   {theme === "dark" ? (
-                    <div className="godown">
+                    <div className="on">
                       <Emoji symbol="🌝" label="Full Moon Face" />
                     </div>
                   ) : (
-                    <div className="goup">
+                    <div className="off">
                       <Emoji symbol="🌚" label="New Moon Face" />
                     </div>
                   )}
