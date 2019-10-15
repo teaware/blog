@@ -47,7 +47,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf public && rm -rf .cache && gatsby build",
-    "develop": "env-cmd .env gatsby develop",
+    "develop": "gatsby develop",
     "format": "prettier --write '{gatsby-*.js,src/**/*.{js,jsx,json,css}}'",
     "start": "npm run develop",
     "serve": "gatsby serve"
