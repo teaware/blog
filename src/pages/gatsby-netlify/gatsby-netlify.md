@@ -7,7 +7,7 @@ spoiler: "Gatsby 非常方便开箱即用，不仅可以搭建网页还可以开
 
 ![Catify](./catify.png)
 
-_[Demo](https://catify.netlify.com/) [Code](https://github.com/teaware/catify)_
+[Demo](https://catify.netlify.com/) & [Code](https://github.com/teaware/catify)
 
 **Note:** 本文由 [Build an Infinite Scroll Image Gallery with Gatsby and Netlify Functions](https://scotch.io/tutorials/build-an-infinite-scroll-image-gallery-with-gatsby-and-netlify-functions) 翻译而来，敬请阅读原文
 
