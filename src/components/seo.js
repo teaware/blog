@@ -19,6 +19,9 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            social {
+              twitter
+            }
           }
         }
       }
@@ -57,11 +60,11 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.social.twitter,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: site.siteMetadata.author,
         },
         {
           name: `twitter:description`,
@@ -73,7 +76,7 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `zh-cmn-Hans`,
   meta: [],
   description: ``,
 }
