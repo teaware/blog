@@ -16,7 +16,7 @@ const Tags = ({ data }) => {
       <div>
         <SEO title="Tags" />
         <h2>Tags</h2>
-        <ul>
+        <ul className="tagslist">
           {allTags.map(tag => (
             <li key={tag.fieldValue}>
               <AniLink
@@ -25,7 +25,8 @@ const Tags = ({ data }) => {
                 bg="#639c6b"
                 to={`/tags/${kebabCase(tag.fieldValue)}`}
               >
-                {tag.fieldValue} ({tag.totalCount})
+                {tag.fieldValue}
+                <span>{tag.totalCount}</span>
               </AniLink>
             </li>
           ))}

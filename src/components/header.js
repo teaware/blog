@@ -1,5 +1,4 @@
 import React from "react"
-import Emoji from "./emoji"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PropTypes from "prop-types"
 
@@ -41,13 +40,9 @@ class Header extends React.Component {
                     checked={theme === "dark"}
                   />
                   {theme === "dark" ? (
-                    <div className="on">
-                      <Emoji symbol="🌝" label="Full Moon Face" />
-                    </div>
+                    <div className="on"></div>
                   ) : (
-                    <div className="off">
-                      <Emoji symbol="🌚" label="New Moon Face" />
-                    </div>
+                    <div className="off"></div>
                   )}
                 </label>
               )}
