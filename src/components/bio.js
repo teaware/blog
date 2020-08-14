@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Emoji from "./emoji"
 
 import { rhythm } from "../utils/typography"
 
@@ -39,7 +40,7 @@ const Bio = () => {
       <p style={{ maxWidth: 180 }}>
         阿江记事本
         <br />
-        be water my friend
+        be water <Emoji symbol="🦦" label="otter" />
       </p>
     </div>
   )

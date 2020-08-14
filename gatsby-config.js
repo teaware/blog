@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `阿江记事本`,
     author: `阿江`,
-    description: `be water my friend`,
+    description: `be water 🦦`,
     siteUrl: `https://veryben.com`,
     social: {
       twitter: `anikijiang`,
