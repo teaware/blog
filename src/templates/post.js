@@ -15,13 +15,15 @@ const Post = ({ data, location }) => {
   const commentBox = React.createRef()
 
   useEffect(() => {
+    const dark = document.body.classList.contains("dark")
+
     const scriptEl = document.createElement("script")
     scriptEl.async = true
     scriptEl.src = "https://utteranc.es/client.js"
     scriptEl.setAttribute("repo", "teaware/comments")
     scriptEl.setAttribute("issue-term", "pathname")
     scriptEl.setAttribute("id", "utterances")
-    scriptEl.setAttribute("theme", "github-light")
+    scriptEl.setAttribute("theme", dark ? "github-dark" : "github-light")
     scriptEl.setAttribute("crossorigin", "anonymous")
     if (commentBox && commentBox.current) {
       commentBox.current.appendChild(scriptEl)
