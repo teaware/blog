@@ -21,15 +21,15 @@ npx create-next-app
 yarn create next-app
 ```
 
-### 那个 API
+### PokeAPI
 
-[PokeAPI](https://pokeapi.co/)）一个免费提供宝可梦数据的 API 对于我们的`宝可梦图鉴`项目是必不可少的
+[PokeAPI](https://pokeapi.co/）一个免费提供宝可梦数据的 API 对于我们的`宝可梦图鉴`项目是必不可少的
 
 ### 初始页面
 
 在项目创建完成以后，我们找到 `pages/index.js` 然后编辑它
 
-```jsx {16,17,18,19}
+```jsx{16-19}
 import React from "react"
 import Head from "next/head"
 import useSWR from "swr"
@@ -65,7 +65,7 @@ function HomePage() {
 export default HomePage
 ```
 
-> 注意：这里直接通过 CDN 使用 [Tailwind](https://tailwindcss.com/) 只是为了便于使用，在实际项目中，这种方法并非使用 Tailwind 的最佳方式！
+> 注意：这里直接通过 CDN 使用 [Tailwind](https://tailwindcss.com/) 只是为了便捷，在实际项目中，这种方法并非使用 Tailwind 的最佳方式！
 
 ### 加载更多
 
