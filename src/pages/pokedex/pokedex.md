@@ -23,7 +23,7 @@ yarn create next-app
 
 ### PokeAPI
 
-[PokeAPI](https://pokeapi.co/）一个免费提供宝可梦数据的 API 对于我们的`宝可梦图鉴`项目是必不可少的
+[PokeAPI](https://pokeapi.co/) 一个免费提供宝可梦数据的 API 对于我们的`宝可梦图鉴`项目是必不可少的
 
 ### 初始页面
 
