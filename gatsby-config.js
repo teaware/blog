@@ -112,21 +112,15 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `UA-45123553-1`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `阿江记事本`,
         short_name: `阿江`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#8c61ff`,
+        theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `src/assets/icon.png`,
+        icon: `src/assets/icon-black.png`,
       },
     },
     `gatsby-plugin-offline`,
