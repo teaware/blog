@@ -28,7 +28,7 @@ yarn create next-app
 
 在刚刚创建完成的项目目录中，我们找到 `pages/index.js` 然后编辑它
 
-```jsx{15-18}
+```jsx{14-16}
 import Head from "next/head"
 import useSWR from "swr"
 
@@ -43,10 +43,7 @@ function HomePage() {
   return (
     <>
       <Head>
-        <link
-          href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-          rel="stylesheet"
-        />
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
       </Head>
       <section className="container py-6 mx-auto">
         <h1 className="text-4xl text-center mb-2">寶可夢圖鑑</h1>
