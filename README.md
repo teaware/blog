@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://ajiang.co">
-    <img alt="Veryben" src="https://ajiang.co/icons/icon-144x144.png" width="60" />
+    <img alt="ajiang.co" src="https://ajiang.co/icons/icon-144x144.png" width="60" />
   </a>
 </p>
 <h2 align="center">
