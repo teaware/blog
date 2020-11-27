@@ -256,4 +256,4 @@ return (
 }
 ```
 
-( [Demo](https://pokedex.ajang.co/) || [Code](https://github.com/teaware/pokedex) )
+( [Demo](https://pokedex.ajiang.co/) || [Code](https://github.com/teaware/pokedex) )
