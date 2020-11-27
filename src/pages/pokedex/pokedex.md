@@ -5,7 +5,12 @@ date: "2020-09-24"
 spoiler: "💫"
 ---
 
+![Pokedex](./pokedex.png)
+
+( [Demo](https://pokedex.ajiang.co/) || [Code](https://github.com/teaware/pokedex) )
+
 [Next.js](https://nextjs.org/) 当前最火最热的 React 框架！
+
 [SWR](https://swr.vercel.app/) 时下最强最有潜力的 React Hooks 库！
 
 我们结合使用 Next.js 和 SWR 动手开发 `宝可梦图鉴` 这个小项目来学习它是如何运作的
@@ -66,7 +71,7 @@ export default HomePage
 
 参考 [SWR 文档](https://swr.vercel.app/docs/pagination)以及[示例](https://swr.vercel.app/examples/infinite-loading)，我们对 `pages/index.js` 做如下修改
 
-```jsx
+```jsx{8}
 import Head from "next/head";
 import { useSWRInfinite, SWRConfig } from "swr";
 
@@ -147,6 +152,108 @@ function HomePage() {
 export default HomePage;
 ```
 
-至此，加载更多功能完成了
+这里通过 `useSWRInfinite` 中的 `setSize` 函数向 PokeAPI 请求新的数据，实现加载更多这个功能
 
-后续添加图片、中文名称、宝可梦简介，留着下次更新
+### 📇 宝可梦卡片
+
+上一步我们实现了加载更多，但是仅仅获取了宝可梦的英文名。现在我们希望展示宝可梦的图片和中文名，要怎么做呢？
+
+新建 components 文件夹并创建 `pokemon.js`
+
+```jsx{4-5, 8-12}
+import useSWR from "swr";
+
+function Pokemon({ name }) {
+  const { data: pokemon } = useSWR(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  const { data: pokemonSpecies } = useSWR(() => pokemon.species.url);
+
+  const bgc = pokemonSpecies ? pokemonSpecies.color.name : "gray"; // background-color
+  const names = pokemonSpecies ? [].concat(...pokemonSpecies.names) : [];
+  const lan = names.filter((obj) => {
+    return obj.language.name === "zh-Hant"; // 宝可梦的繁体中文名
+  });
+  const theName = pokemonSpecies ? lan[0].name : name;
+
+  return (
+    <div className="p-2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4">
+      <article className={`rounded-md shadow-md w-full p-3 bg-${bgc}-500`}>
+        {pokemon ? (
+          <div className={`poke-name id-${pokemon.id} flex justify-between items-center px-1`}>
+            <div>
+              <h2 className="text-lg capitalize mb-2">{theName}</h2>
+              <div>
+                {pokemon.types.map((type) => (
+                  <span
+                    key={type.type.name}
+                    className="inline-block bg-gray-400 bg-opacity-25 rounded-lg px-2 text-sm text-gray-700 mr-2 mb-2"
+                  >
+                    {type.type.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="w-16 h-16 ml-1">
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+                alt={name}
+              />
+            </div>
+          </div>
+        ) : (
+          <p className="font-bold text-l capitalize">Loading {name}...</p>
+        )}
+      </article>
+    </div>
+  );
+}
+
+export default Pokemon;
+```
+
+这里首先获取 `pokemon` 的数据，然后通过已获取数据 `pokemon.species.url` 使用 `useSWR()` 获取 `pokemonSpecies`
+
+`pokemonSpecies.names` 是一个包含宝可梦多国语言名称的数组，我们用 `filter` 函数筛选出我们需要的语言。
+
+接下来我们回到 `pages/index.js` 引入 `Pokemon` 部件，代码调整如下
+
+```jsx{3, 17}
+import Head from "next/head";
+import { useSWRInfinite, SWRConfig } from "swr";
+import Pokemon from "../components/pokemon";
+
+...
+
+return (
+    <>
+      <Head>
+        <title>寶可夢圖鑑</title>
+      </Head>
+      <section className="container py-6 mx-auto">
+        <h1 className="text-4xl text-center mb-2">寶可夢圖鑑</h1>
+        <div className="flex flex-wrap">
+          {pokemonList.map((pokemon) => {
+            return pokemon.results.map((result) => (
+              <Pokemon key={result.name} name={result.name} />
+            ));
+          })}
+        </div>
+        <div className="mx-auto py-10 w-1/2 text-center">
+          <button
+            className="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none"
+            disabled={isLoadingMore || isReachingEnd}
+            onClick={() => setSize(size + 1)}
+          >
+            {isLoadingMore
+              ? Loading
+              : isReachingEnd
+              ? "No More Pokémon"
+              : "Load More Pokémon"}
+          </button>
+        </div>
+      </section>
+    </>
+  );
+}
+```
+
+( [Demo](https://pokedex.ajang.co/) || [Code](https://github.com/teaware/pokedex) )
