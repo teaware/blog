@@ -65,12 +65,13 @@ footer {
 main {
   padding: 2rem 1.3125rem;
 }
-
-.navbar {
+.headroom {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
-  padding: 1rem 1.3125rem;
   background-color: var(--bg);
   // backdrop-filter: blur(16px); // 配合背景色半透明使用
+}
+.navbar {
+  padding: 1rem 1.3125rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
